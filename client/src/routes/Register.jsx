@@ -20,7 +20,6 @@ function Register() {
     });
 
     const data = await response.json();
-    console.log(data.status);
     if (data.status === 'ok') {
         navigate('/login')
     }
