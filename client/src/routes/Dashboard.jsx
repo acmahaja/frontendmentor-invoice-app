@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { isExpired, decodeToken } from "react-jwt";
-
+import { Link } from "react-router-dom";
 function Dashboard() {
   let navigate = useNavigate();
 
@@ -17,13 +17,13 @@ function Dashboard() {
     });
 
     const data = await req.json();
+    console.log(1);
     if (data.status === "error") {
       localStorage.removeItem("token");
       navigate("/login");
     } else {
       setInvoices(data.invoices);
     }
-    // else alert(data.error);
   };
 
   useEffect(() => {
@@ -40,9 +40,15 @@ function Dashboard() {
     } else {
       navigate("/login");
     }
-  });
+  }, []);
 
-  const invoiceList = invoices.map((invoice) => <li><a href="#">{invoice.id}</a></li>)
+  const invoiceList = invoices.map((invoice) => (
+    <li>
+      <Link to={`/invoice/${invoice._id}`} >
+        {invoice._id}
+      </Link>
+    </li>
+  ));
 
   return (
     <>
