@@ -17,8 +17,9 @@ function Dashboard() {
     });
 
     const data = await req.json();
-    console.log(1);
+    console.log(data);
     if (data.status === "error") {
+      console.log("Bad Token");
       localStorage.removeItem("token");
       navigate("/login");
     } else {

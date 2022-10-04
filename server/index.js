@@ -42,7 +42,7 @@ async function verifyAccessToken(req, res, next) {
   next();
 }
 
-app.get("/api/invoice", verifyAccessToken, async (req, res) => {
+app.post("/api/invoice", verifyAccessToken, async (req,res)=>{
   try {
     const token = req.headers["x-access-token"];
     const decoded = jwt.verify(token, process.env.SECRET_HASH);
@@ -51,10 +51,38 @@ app.get("/api/invoice", verifyAccessToken, async (req, res) => {
       email: decoded.email,
     });
 
-    const invoices = await Invoice.find({
-      user: user._id
+    let invoice = new Invoice({
+      user: user._id,
+      status: "draft",
+      street: req.body.street,
+      city: req.body.city,
+      postcode: req.body.postcode,
+      country: req.body.country
+    })
+
+    await invoice.save()
+
+    res.json({ status: "ok", invoiceID: invoice.id });
+
+
+  } catch (error) {
+    console.log(error);
+    res.json({ status: "error", error: "Something Broke" });
+  }
+})
+
+app.get("/api/invoice", verifyAccessToken, async (req, res) => {
+  try {
+    const token = req.headers["x-access-token"];
+    const decoded = jwt.verify(token, process.env.SECRET_HASH);
+    console.log(decoded);
+    const {_id} = await User.findOne({
+      email: decoded.email,
     });
 
+    const invoices = await Invoice.find({
+      user: _id
+    });
     res.json({ status: "ok", invoices: invoices });
   } catch (error) {
     res.json({ status: "error", error: "Something Broke" });
@@ -83,6 +111,8 @@ app.post("/api/login", async (req, res) => {
     res.json({ status: "error", error: "Invalid login" });
   }
 });
+
+
 
 app.post("/api/register", async (req, res) => {
   let user = User.findOne({

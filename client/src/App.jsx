@@ -4,13 +4,15 @@ import Register from "./routes/Register";
 import Login from "./routes/Login"
 import Dashboard from "./routes/Dashboard"
 import Invoice from "./routes/Invoice"
+import New from "./routes/New"
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="invoice/:id" element={<Invoice />} />
+          <Route path="/invoice/:id" element={<Invoice />} />
+          <Route path="/new" element={<New />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
