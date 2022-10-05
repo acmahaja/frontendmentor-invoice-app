@@ -1,12 +1,17 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../css/Login.css";
+import img from "../assets/finance_app.svg";
+import "../css/Inputs.css";
+import "../css/Buttons.css";
+import "../css/Links.css";
 
 function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-    const navigate = useNavigate()
+  const navigate = useNavigate();
 
   async function loginUser(event) {
     event.preventDefault();
@@ -19,21 +24,19 @@ function Register() {
     });
 
     const data = await response.json();
-    if (data.status === 'ok') {
-        localStorage.setItem(
-            'token', data.token
-        )
-        navigate('/dashboard')
+    if (data.status === "ok") {
+      localStorage.setItem("token", data.token);
+      navigate("/dashboard");
     } else {
-        console.log('An Error!');
+      console.log("An Error!");
     }
-}
+  }
 
   return (
-    <div>
-      <h1>Login</h1>
+    <main>
       <form onSubmit={loginUser}>
-        <div>
+        <img src={img} alt="logo" />
+        <div className="textInput">
           <label htmlFor="email">Email</label>
           <input
             placeholder={email}
@@ -43,7 +46,7 @@ function Register() {
             id="email"
           />
         </div>
-        <div>
+        <div className="textInput">
           <label htmlFor="">Password</label>
           <input
             placeholder={password}
@@ -55,9 +58,14 @@ function Register() {
           />
         </div>
 
-        <button type="submit">Login</button>
+        <button className="Button2" type="submit">
+          Login
+        </button>
+        <a className="Medium-Grey" href="/register">
+          Register Here!
+        </a>
       </form>
-    </div>
+    </main>
   );
 }
 

@@ -1,0 +1,7 @@
+a.Medium-Grey {
+    text-decoration: none;
+    color: rgb(var(--medium-grey));
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 400;
+}

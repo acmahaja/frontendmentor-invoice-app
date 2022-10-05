@@ -5,6 +5,7 @@ import Login from "./routes/Login"
 import Dashboard from "./routes/Dashboard"
 import Invoice from "./routes/Invoice"
 import New from "./routes/New"
+import './css/App.css'
 
 function App() {
   return (
