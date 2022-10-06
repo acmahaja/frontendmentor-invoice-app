@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700&display=swap');
 
 :root{
+    --light-grey: 248, 248, 251;
     --medium-grey: 126, 136, 195;
     --purple: 124, 93, 250;
 }
@@ -11,10 +12,12 @@
 }
 
 html{
-    width: 100vw;
+    max-width: 100vw;
     min-height: 100vh;
     padding: 0px;
     margin: 0px;
+    box-sizing: border-box;
+
 }
 
 body {
@@ -22,12 +25,18 @@ body {
     height: 100vh;
     padding: 0px;
     margin: 0px;
+    box-sizing: border-box;
+
 }
 
 #root {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     padding: 0px;
-    margin: 0px;  
+    margin: 0px; 
+    box-sizing: border-box;
+ 
 }
+
+
 

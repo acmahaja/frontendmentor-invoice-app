@@ -26,7 +26,7 @@ function Register() {
     const data = await response.json();
     if (data.status === "ok") {
       localStorage.setItem("token", data.token);
-      navigate("/dashboard");
+      navigate("/");
     } else {
       console.log("An Error!");
     }

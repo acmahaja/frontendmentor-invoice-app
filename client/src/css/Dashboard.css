@@ -1,0 +1,22 @@
+
+.App {
+    background-image: none;
+    background-color: rgb(var(--light-grey));
+    width: 100%;
+    min-height: 100vh;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+
+}
+
+main {
+    height: fit-content;
+    background-color: pink;
+    width: calc(100% - 103px);
+    min-height: 100vh;
+    margin-left: 103px;
+    overflow:hidden;
+
+}

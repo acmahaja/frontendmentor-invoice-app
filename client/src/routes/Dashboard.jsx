@@ -3,6 +3,12 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { isExpired, decodeToken } from "react-jwt";
 import { Link } from "react-router-dom";
+import Sidebar from "../components/Sidebar";
+
+
+import '../css/Dashboard.css'
+
+
 function Dashboard() {
   let navigate = useNavigate();
 
@@ -53,9 +59,22 @@ function Dashboard() {
 
   return (
     <>
-      <h1>Invoices</h1>
-      <button onClick={getInvoices}>Get Invoices</button>
-      {invoiceList}
+      <Sidebar />
+      <main>
+        <button onClick={getInvoices}>Get Invoices</button>
+        {invoiceList}
+        {invoiceList}
+        {invoiceList}
+        {invoiceList}
+        {invoiceList}
+        {invoiceList}
+        {invoiceList}
+        {invoiceList}
+        {invoiceList}
+        {invoiceList}
+        {invoiceList}
+
+      </main>
     </>
   );
 }

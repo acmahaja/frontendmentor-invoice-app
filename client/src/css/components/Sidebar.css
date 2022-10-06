@@ -1,0 +1,9 @@
+nav {
+    width: 103px;
+    height: 100%;
+    background-color: red;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0;
+    left: 0; /* Position the navbar at the bottom of the page */
+    
+}
