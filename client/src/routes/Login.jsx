@@ -1,11 +1,11 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../css/Login.css";
 import img from "../assets/finance_app.svg";
-import "../css/Inputs.css";
-import "../css/Buttons.css";
-import "../css/Links.css";
+import "../css/Login.css";
+import "../css/components/Inputs.css";
+import "../css/components/Buttons.css";
+import "../css/components/Links.css";
 
 function Register() {
   const [email, setEmail] = useState("");
@@ -33,9 +33,8 @@ function Register() {
   }
 
   return (
-    <main>
-      <form onSubmit={loginUser}>
-        <img src={img} alt="logo" />
+      <form className="LoginForm" onSubmit={loginUser}>
+        <img src={img} alt="welcome" />
         <div className="textInput">
           <label htmlFor="email">Email</label>
           <input
@@ -65,7 +64,6 @@ function Register() {
           Register Here!
         </a>
       </form>
-    </main>
   );
 }
 

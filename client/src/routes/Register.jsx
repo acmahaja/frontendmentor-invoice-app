@@ -2,6 +2,13 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import img from "../assets/register.svg";
+
+import  "../css/Register.css";
+import "../css/components/Inputs.css";
+import "../css/components/Buttons.css";
+import "../css/components/Links.css";
+
 function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -26,10 +33,9 @@ function Register() {
   }
 
   return (
-    <div>
-      <h1>Register</h1>
-      <form onSubmit={registerUser}>
-        <div>
+      <form className="registerForm" onSubmit={registerUser}>
+      <img src={img} alt="register" />
+        <div className="textInput">
           <label htmlFor="name">Name</label>
           <input
             placeholder={name}
@@ -39,7 +45,7 @@ function Register() {
             id="name"
           />
         </div>
-        <div>
+        <div className="textInput">
           <label htmlFor="email">Email</label>
           <input
             placeholder={email}
@@ -49,7 +55,7 @@ function Register() {
             id="email"
           />
         </div>
-        <div>
+        <div className="textInput">
           <label htmlFor="">Password</label>
           <input
             placeholder={password}
@@ -61,9 +67,14 @@ function Register() {
           />
         </div>
 
-        <button type="submit">Register</button>
+        <button className="Button2" type="submit">
+          Register
+        </button>
+
+        <a className="Medium-Grey" href="/login">
+          Login
+        </a>
       </form>
-    </div>
   );
 }
 
